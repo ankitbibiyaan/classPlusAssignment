@@ -419,8 +419,8 @@ function getRecentTracksApi (req, res) {
 
 
 function addFavourites (req, res) {
-	req.checkBody('access_token', 'email is required').notEmpty();
-	req.checkBody('track_name', 'Invalid email provided').notEmpty();
+	req.checkBody('access_token', 'parameter missing').notEmpty();
+	req.checkBody('track_name', 'parameter missing').notEmpty();
 
 	var errors = req.validationErrors();
 	if(errors) {
@@ -451,8 +451,8 @@ function addFavourites (req, res) {
 
 
 function deleteFavourites (req, res) {
-	req.checkBody('access_token', 'email is required').notEmpty();
-	req.checkBody('fav_id', 'Invalid email provided').notEmpty();
+	req.checkBody('access_token', 'parameter missing').notEmpty();
+	req.checkBody('fav_id', 'parameter missing').notEmpty();
 
 	var errors = req.validationErrors();
 	if(errors) {
@@ -618,7 +618,7 @@ function checkUsernameExists (username) {
 			helperFunctions.executeQuery(sql_query, bind_params)
                 .then((result)=> {
 	if(result.length) {
-		return reject('Email already exists');
+		return reject('Username already exists');
 	}
 
 	return resolve();
