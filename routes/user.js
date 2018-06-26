@@ -285,7 +285,7 @@ function getTopArtistsApi (req, res) {
 			return getTopArtists(last_fm_session_token);
 		})
 		.then((result) => {
-			result = constants.mockTopArtists;
+			// result = constants.mockTopArtists;
 			if(!result || !result.topartists || !result.topartists.artist || !Array.isArray(result.topartists.artist)) {
 				throw new Error('Unable to fetch Top Artists from last.fm');
 			}
@@ -326,7 +326,7 @@ function getTopAlbumsApi (req, res) {
 		})
 		.then((result) => {
 			console.log('Album Result', result);
-			result = constants.mockTopAlbums;
+			// result = constants.mockTopAlbums;
 			if(!result || !result.topalbums || !result.topalbums.album || !Array.isArray(result.topalbums.album)) {
 				throw new Error('Unable to fetch top albums from last.fm');
 			}
@@ -387,7 +387,7 @@ function getRecentTracksApi (req, res) {
 			}
 			else {
 				let responseArray = [];
-				let trackArray = result.recenttracks.track;
+				// let trackArray = result.recenttracks.track;
 
 				// let test = `<a href="#" onclick="Dislike(`+ 2+')">Dislike</a> ';
 				// console.log("TEST STRING %%%%%%%%%%    ", test);
