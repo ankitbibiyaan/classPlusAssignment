@@ -110,10 +110,10 @@ function userLoginViaLastFm (req, res) {
 	console.log('login via last fm');
 	let cb_url;
 	if(token && usn) {
-		cb_url = 'http://52.35.111.71/profile?usn='+usn+'&key='+ token;
+		cb_url = 'http://34.211.60.64/profile?usn='+usn+'&key='+ token;
 	}
 	else {
-		cb_url = 'http://52.35.111.71/';
+		cb_url = 'http://34.211.60.64/';
 	}
 	return responses.sendActionCompleteResponse(res, null, {
 		url : api.auth.webAuthUrl(cb_url)
