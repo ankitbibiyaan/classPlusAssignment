@@ -110,10 +110,10 @@ function userLoginViaLastFm (req, res) {
 	console.log('login via last fm');
 	let cb_url;
 	if(token && usn) {
-		cb_url = 'http://localhost:8080/profile?usn='+usn+'&key='+ token;
+		cb_url = 'http://52.35.111.71/profile?usn='+usn+'&key='+ token;
 	}
 	else {
-		cb_url = 'http://localhost:8080/';
+		cb_url = 'http://52.35.111.71/';
 	}
 	return responses.sendActionCompleteResponse(res, null, {
 		url : api.auth.webAuthUrl(cb_url)
@@ -152,7 +152,7 @@ function callbackForLastFm (req, res) {
 	}
 	userDetails = result.user;
 	let sql_query = 'SELECT username,access_token FROM tb_users WHERE username = ?';
-	let bind_params = [result.user.name.toString().toLowerCase()];
+	let bind_params = [username || result.user.name.toString().toLowerCase()];
 	return helperFunctions.executeQuery(sql_query, bind_params);
 })
             .then((result) => {
